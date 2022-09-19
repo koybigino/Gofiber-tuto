@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Fiber Template</title>
+</head>
+<body>
+    <h1 class="text-center text-black m-5 text-uppercase fs-1 fw-bold">{{ .hello }}</h1>
+    <div class="alert alert-primary text-center mb-5 mx-5">
+        <p>Welcome to our post site !</p>
+        <p>The total number of posts is <span class="text-success fw-bold">{{ .count }}</span></p>
+    </div>
+    <div class="container flex my-5">
+        <div class="row gap-3 justify-content-around">
+            {{ range .posts }}
+                <div class="col-4 bg-light text-center p-3">
+                    <h2 class="text-primary text-uppercase fs-3 fw-semibold">Title : {{ .Title }}</h2>
+                    <p class="text-secondary fs-5">Id : {{ .Id }}</p>
+                    <p class="text-secondary fs-5">Content : {{ .Content }}</p>
+                    {{ if .Published }}
+                        <p class="text-success fs-5">Published : {{ .Published }}</p>
+                    {{ else }}
+                        <p class="text-danger fs-5">Published : {{ .Published }}</p>
+                    {{ end }}
+                </div>
+            {{ end }}
+        </div>
+    </div>
+</body>
+</html>
