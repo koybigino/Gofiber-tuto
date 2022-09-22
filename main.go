@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"strconv"
+	"time"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/template/html"
@@ -12,11 +13,12 @@ import (
 )
 
 type Post struct {
-	Id        int    `json:"id" gorm:"primaryKey"`
-	Title     string `json:"title"`
-	Content   string `json:"content"`
-	Published bool   `json:"published"`
-	gorm.Model
+	Id        int       `json:"id" gorm:"primaryKey"`
+	Title     string    `json:"title"`
+	Content   string    `json:"content"`
+	Published bool      `json:"published"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 func main() {
